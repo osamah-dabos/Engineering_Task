@@ -12,7 +12,7 @@
         @foreach (var task in Model)
         {
             <li>
-                @if(task.IsComplete)
+                @if (task.IsComplete)
                 {
                     <s>@task.Title</s>
                 }
@@ -25,7 +25,11 @@
                     </form>
                 }
 
-                <!-- TODO: إضافة زر حذف المهمة -->
+                <!-- ✅ زر حذف المهمة -->
+                <form method="post" asp-action="DeleteTask" style="display:inline; margin-left:10px;">
+                    <input type="hidden" name="id" value="@task.Id" />
+                    <button type="submit"> حذف</button>
+                </form>
             </li>
         }
     </ul>
